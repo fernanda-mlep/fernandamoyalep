@@ -1,5 +1,5 @@
 # fernandamoyalep
-Este es el portafolio web de Fernanda Moya Lepillán 
+Este es el portafolio web de Fernanda Moya Lepillán.  
   Diseño editorial, diseño gráfico, UX/UI y desarrollo front-end.
 
 Link de acceso: https://fernanda-mlep.github.io/fernandamoyalep/
