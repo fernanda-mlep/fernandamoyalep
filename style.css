@@ -1,0 +1,289 @@
+/* --- Configuración general --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #404040;
+  height: 100vh;         /* altura total del viewport */
+  display: flex;          /* layout flex para sidebar + contenido */
+  overflow: hidden;       /* evita scroll global */
+}
+
+.titulo-principal {
+  font-family: "Montserrat-Bold", sans-serif;
+  font-size: 50px;
+  color:#ff6cba;
+  margin-bottom: 50px;
+  margin-top: 30px; 
+}
+
+.textoinfo {
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 1rem; /* en lugar de 18px */
+  margin-top: 2rem;
+  margin-right: 3rem;
+}
+
+.años {
+  font-family: "Montserrat-Bold", sans-serif;
+  margin-top: 2rem;
+}
+
+.sidebarLinks {
+  font-family: "Montserrat-Light", sans-serif;
+  text-decoration: none;
+  color: #404040;
+  transition: color 0.2s;
+  line-height: 0.5rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.gif {
+  margin-top: 3rem;
+  width: 200px;
+  border-radius: 10px;
+}
+
+
+/* --- Botón menú hamburguesa (celular) --- */
+.menu-btn {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+  background-color: #ff6cba;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-family: "Montserrat-Light", sans-serif;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* --- SIDEBAR --- */
+.sidebar-conejito {
+  width: 120px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 20px; /* espacio entre la imagen y el contenido */
+}
+
+.sidebar {
+  font-family: "Montserrat-Light", sans-serif;
+  font-size: 1rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 20%;
+  height: 100vh;
+  background-color: #FFFFFF;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  overflow-y: hidden;/* permite scroll si sidebar es muy largo */
+}
+
+.sidebar h2 {
+  margin-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #404040;
+  transition: color 0.2s;
+}
+
+.sidebar ul li a:hover {
+  color: #ff6cba;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.contenido {
+  font-family: "Montserrat-Regular", sans-serif;
+  margin-left: 20%;      /* espacio para el sidebar */
+  padding: 40px 30px;
+  height: 100vh;         /* altura completa del viewport */
+  overflow-y: auto;      /* scroll solo en contenido */
+}
+
+.contenido img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+.subtitulo {
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* --- RESPONSIVO CELULAR --- */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .sidebar {
+    width: 70%;
+    max-width: 300px;
+    height: 100%;
+    transform: translateX(-100%); /* oculto por defecto */
+    position: fixed;
+  }
+
+  .sidebar.active {
+    transform: translateX(0); /* visible al abrir */
+  }
+
+  .contenido {
+    margin-left: 0;        /* contenido ocupa todo el ancho */
+    margin-right: 0;
+    padding: 20px;
+  }
+}
+
+/* --- Enlace activo --- */
+.sidebar a.activo {
+  font-weight: bold;
+  color: #f60073;
+}
+
+/* --- Scroll personalizado opcional --- */
+.contenido::-webkit-scrollbar {
+  width: 8px;
+}
+.contenido::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+.contenido::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+
+
+/* --- Galería de imágenes TOFF --- */
+.galeria-toff {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  gap: 20px; /* espacio entre imágenes */
+  margin-top: 2rem;
+}
+
+.galeria-toff .item {
+  text-align: center;
+}
+
+.galeria-toff img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* --- Visor (pantalla completa) --- */
+.visor {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.visor img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.visor p {
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.visor .cerrar {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+
+/* efecto hover (se eleva suavemente al pasar el cursor) */
+.galeria-toff img:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* --- versión responsiva (celular) --- */
+@media (max-width: 768px) {
+  .galeria-toff {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
+  }
+}
+
+@media (max-width: 480px) {
+  .galeria-toff {
+    grid-template-columns: 1fr; /* 1 columna en celular */
+  }
+}
+
+
+/* Taller creación impresa */
+.videoTCIS1 {
+  position: relative;
+  padding-bottom: 56.25%; /* relación 16:9 */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin-top: 20px;
+  margin-bottom: 30px; 
+}
+
+.videoTCIS1 iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.instagram-link {
+  color: #ff6cba; /* el color que quieras */
+  text-decoration: none; /* quita el subrayado */
+}
+
+.instagram-link:hover {
+  color: #3d036d; /* color al pasar el cursor */
+}

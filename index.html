@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fernanda Moya Lepillán, estudiante de tercer año en Diseño PUCV">
+  <title>Portafolio Fernanda Moya</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <!-- Botón hamburguesa para celular -->
+  <button class="menu-btn" onclick="toggleSidebar()">☰ Menú</button>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="volveraindex">
+    <a href="index.html">
+    <img src="fotos/conejitoblanco.png" alt="conejito" class="sidebar-conejito"></a>
+    </div>
+  
+    <h2 class="años">2023</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="TOFF.html">Taller de Observación Fundamento y Forma</a></li>
+      <li><a class="sidebarLinks" href="Taller de Creación Impresa.html">Taller de Creación Impresa</a></li>
+    </ul>
+
+    <h2 class="años">2024</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="Taller Ciudad Legible.html">Taller Ciudad Legible</a></li>
+      <li><a class="sidebarLinks" href="Taller de Máquinas Expresivas.html">Taller de Máquinas Expresivas</a></li>
+    </ul>
+
+    <h2 class="años">2025</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="Taller de la Ocasión Editorial.html">Taller de la Ocasión Editorial</a></li>
+      <li><a class="sidebarLinks" href="Taller Diseño de Ediciones Digitales.html">Taller Diseño de Ediciones Digitales</a></li>
+    </ul>
+
+    <h2 class="años">Proyectos personales</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="Ediciones DOG.html">Ediciones DOG</a></li>
+      <li><a class="sidebarLinks" href="Otros.html">Otros</a></li>
+    </ul>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="contenido">
+
+    <h1 class="titulo-principal">Poooooooooortafolio Digital :-) </h1>
+
+
+    <p class="textoinfo">Este es el portafolio web de <span class="bold">Fernanda Moya Lepillán</span>,
+       estudiante de tercer año en la carrera de Diseño en la Pontificia Universidad 
+       Católica de Valparaíso. 
+        A continuación puedes revisar mis tareas y proyectos relacionadas al mundo del
+         diseño gráfico y editorial  ! </p>
+
+
+
+     <p class="textoinfo">Correo institucional: fernanda.moya.l@mail.pucv.cl</p>
+     <p class="textoinfo">Correo personal: fernanditamoya84@gmail.com</p>
+     <p class="textoinfo">Correo DOG: edicionesdog@gmail.com</p>
+     <p class="textoinfo">Instagram DOG: <a href="https://www.instagram.com/edicionesdog" target="_blank">@edicionesdog</a></p>
+     <p class="textoinfo">Mi perfil de <a href="https://wiki.ead.pucv.cl/Fernanda_Moya" target="_blank">Wiki Casiopea</a>.
+
+
+
+
+      <img class="gif" src="fotos/gatopiano.gif" alt="yop">
+
+  
+  </div>
+
+  <!-- Vinculación del JS -->
+  <script src="script.js"></script>
+
+  <script>
+  // Obtiene todos los enlaces del sidebar
+  const sidebarLinks = document.querySelectorAll('.sidebar a');
+
+  // Itera sobre ellos y compara su href con la URL actual
+  sidebarLinks.forEach(link => {
+    if (link.href === window.location.href) {
+      link.classList.add('activo');  // Agrega la clase activo al enlace correspondiente
+    } else {
+      link.classList.remove('activo'); // Quita si había otro
+    }
+  });
+</script>
+
+</body>
+</html>

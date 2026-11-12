@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Taller de Observación, Fundamento y Forma - Primer semestre 2023 en primer año Diseño PUCV">
+  <title>Taller de Observación, Fundamento y Forma</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Botón hamburguesa para celular -->
+  <button class="menu-btn" onclick="toggleSidebar()">☰ Menú</button>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="volveraindex">
+      <a href="index.html">
+        <img src="fotos/conejitoblanco.png" alt="conejito" class="sidebar-conejito">
+      </a>
+    </div>
+  
+    <h2 class="años">2023</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="TOFF.html">Taller de Observación Fundamento y Forma</a></li>
+      <li><a class="sidebarLinks" href="Taller de Creación Impresa.html">Taller de Creación Impresa</a></li>
+    </ul>
+
+    <h2 class="años">2024</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="Taller Ciudad Legible.html">Taller Ciudad Legible</a></li>
+      <li><a class="sidebarLinks" href="Taller de Máquinas Expresivas.html">Taller de Máquinas Expresivas</a></li>
+    </ul>
+
+    <h2 class="años">2025</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="Taller de la Ocasión Editorial.html">Taller de la Ocasión Editorial</a></li>
+    </ul>
+
+    <h2 class="años">Proyectos personales</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="Ediciones DOG.html">Ediciones DOG</a></li>
+    </ul>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="contenido">
+    <h1 class="titulo-principal">Taller de Observación, Fundamento y Forma</h1>
+    <h3>Primer semestre 2023 - Primer semestre de carrera</h3>
+
+    <p class="textoinfo">
+      Se cursa un semestre de introducción a la carrera, en la que se trabaja con maquetas y diseño de cuerpos tridimensionales,
+      construcción de láminas con dimensiones 110cm x 77cm y ejercicios de observación y representación gráfica.
+    </p>
+
+     <h3 class="subtitulo">Ciclo 1</h3>
+    <div class="galeria-toff">
+      <img src="fotos/TOFF/toffc1.1.png" alt="Bitácora de taller" onclick="abrirImagen(this)">
+      <img src="fotos/TOFF/toff2.png" alt="Cuerpo tridimensional abstraido" onclick="abrirImagen(this)">
+      <img src="fotos/TOFF/toff3.png" alt="Ejercicio observación" onclick="abrirImagen(this)">
+      <img src="fotos/TOFF/toff4.png" alt="Ejercicio observación" onclick="abrirImagen(this)">
+      <img src="fotos/TOFF/toff5.png" alt="Ejercicio observación" onclick="abrirImagen(this)">
+      <img src="fotos/TOFF/toff6.png" alt="Lámina de proyecto final" onclick="abrirImagen(this)">
+      <img src="fotos/TOFF/toff7.png" alt="Lámina de proyecto final" onclick="abrirImagen(this)">
+      <img src="fotos/TOFF/toff8.png" alt="Lámina de proyecto final" onclick="abrirImagen(this)">
+      <img src="fotos/TOFF/toff9.png" alt="Proyecto final" onclick="abrirImagen(this)">
+    </div>
+  </div>
+
+  <!-- Contenedor del visor -->
+  <div id="visor" class="visor" onclick="cerrarImagen()">
+    <span class="cerrar">&times;</span>
+    <img id="imagenAmpliada" src="">
+    <p id="descripcionImagen"></p>
+  </div>
+
+  <!-- Script del visor -->
+  <script>
+    function abrirImagen(img) {
+      const visor = document.getElementById("visor");
+      const imagenAmpliada = document.getElementById("imagenAmpliada");
+      const descripcion = document.getElementById("descripcionImagen");
+
+      imagenAmpliada.src = img.src;
+      descripcion.textContent = img.alt || "";
+      visor.style.display = "flex";
+    }
+
+    function cerrarImagen() {
+      document.getElementById("visor").style.display = "none";
+    }
+  </script>
+
+  <!-- Script general (sidebar y menú hamburguesa) -->
+  <script src="script.js"></script>
+
+  <!-- Script para resaltar dinámicamente el enlace activo -->
+  <script>
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
+
+    function actualizarActivo(link) {
+      sidebarLinks.forEach(l => l.classList.remove('activo'));
+      link.classList.add('activo');
+    }
+
+    sidebarLinks.forEach(link => {
+      // Resalta automáticamente el enlace que coincide con la URL al cargar
+      if (link.href === window.location.href) {
+        link.classList.add('activo');
+      }
+
+      // Al hacer clic, resalta y quita el anterior
+      link.addEventListener('click', function() {
+        actualizarActivo(this);
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+

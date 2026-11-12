@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Taller Máquinas Expresivas" content="Taller Máquinas Expresivas - Segundo semestre 2024 en segundo año Diseño PUCV">
+  <title>Taller Máquinas Expresivas</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Botón hamburguesa para celular -->
+  <button class="menu-btn" onclick="toggleSidebar()">☰ Menú</button>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="volveraindex">
+      <a href="index.html">
+        <img src="fotos/conejitoblanco.png" alt="conejito" class="sidebar-conejito">
+      </a>
+    </div>
+  
+    <h2 class="años">2023</h2>
+    <ul>
+      <li><a href="TOFF.html">Taller de Observación Fundamento y Forma</a></li>
+      <li><a href="Taller de Creación Impresa.html">Taller de Creación Impresa</a></li>
+    </ul>
+
+    <h2 class="años">2024</h2>
+    <ul>
+      <li><a href="Taller Ciudad Legible.html">Taller Ciudad Legible</a></li>
+      <li><a href="Taller de Máquinas Expresivas.html">Taller de Máquinas Expresivas</a></li>
+    </ul>
+
+    <h2 class="años">2025</h2>
+    <ul>
+      <li><a href="Taller de la Ocasión Editorial.html">Taller de la Ocasión Editorial</a></li>
+    </ul>
+
+    <h2 class="años">Proyectos personales</h2>
+    <ul>
+      <li><a href="Ediciones DOG.html">Ediciones DOG</a></li>
+    </ul>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="contenido">
+    <h1 class="titulo-principal">Taller Máquinas Expresivas</h1>
+    <h3 class="subtitulo">Segundo semestre 2024 - Cuarto semestre de carrera</h3>
+
+    <p class="textoinfo">
+      Este es mi primer y único taller que he tomado de diseño industrial-objetos y no es un mal taller per se pero 
+      la pasé tan mal, honestamente no me gusta para nada el diseño de objetos y es entretenido trabajar con madera 
+      y todas esas cosas pero ufff este taller....    </p>
+
+      <p class="textoinfo"> El proyecto se trataba de abstraer el gesto de una gimnasta y
+         construir una máquina que representara ese gesto a través de movimiento mecánico. </p>
+
+    <h3 class="subtitulo">Proyecto:¡¡¡¡ La asombrosa super gimnasta !!!!!!!</h3>
+    <div class="galeria-toff">
+      <img src="fotos/TME/TME3.png" alt="Prototipo inicial" onclick="abrirImagen(this)">
+      <img src="fotos/TME/TME4.png" alt="Prototipo inicial" onclick="abrirImagen(this)">
+      <img src="fotos/TME/TME5.png" alt="Prototipo inicial" onclick="abrirImagen(this)">
+      <img src="fotos/TME/TME6.png" alt="Pieza basal de la estructura final" onclick="abrirImagen(this)">
+      <img src="fotos/TME/TME7.png" alt="Pieza basal de la estructura final" onclick="abrirImagen(this)">
+      <img src="fotos/TME/TME1.png" alt="Dibujo del gesto que se buscaba abstraer" onclick="abrirImagen(this)">
+      <img src="fotos/TME/TME2.png" alt="Lámina de proyecto final - Dimensiones 77cm x 330cm" onclick="abrirImagen(this)">
+    </div>
+
+    <div class="videoTCIS1">
+      <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/sixUZ5m5kMM" 
+        title="Entrega Final Taller Máquinas Expresivas 2024" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+
+
+  </div>
+
+  <!-- Contenedor del visor -->
+  <div id="visor" class="visor" onclick="cerrarImagen()">
+    <span class="cerrar">&times;</span>
+    <img id="imagenAmpliada" src="">
+    <p id="descripcionImagen"></p>
+  </div>
+
+  <!-- Script del visor -->
+  <script>
+    function abrirImagen(img) {
+      const visor = document.getElementById("visor");
+      const imagenAmpliada = document.getElementById("imagenAmpliada");
+      const descripcion = document.getElementById("descripcionImagen");
+
+      imagenAmpliada.src = img.src;
+      descripcion.textContent = img.alt || "";
+      visor.style.display = "flex";
+    }
+
+    function cerrarImagen() {
+      document.getElementById("visor").style.display = "none";
+    }
+  </script>
+
+  <!-- Script general (sidebar y menú hamburguesa) -->
+  <script src="script.js"></script>
+
+  <!-- Script para resaltar dinámicamente el enlace activo -->
+  <script>
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
+
+    function actualizarActivo(link) {
+      sidebarLinks.forEach(l => l.classList.remove('activo'));
+      link.classList.add('activo');
+    }
+
+    sidebarLinks.forEach(link => {
+      // Resalta automáticamente el enlace que coincide con la URL al cargar
+      if (link.href === window.location.href) {
+        link.classList.add('activo');
+      }
+
+      // Al hacer clic, resalta y quita el anterior
+      link.addEventListener('click', function() {
+        actualizarActivo(this);
+      });
+    });
+  </script>
+
+</body>
+</html>
+

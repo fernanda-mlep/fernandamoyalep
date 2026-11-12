@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Ediciones DOG" content="Dog es una editorial independiente conformada por tres personas, nace de la necesidad de espacios creativos sin correcciones académicas.">
+  <title>Ediciones DOG</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Botón hamburguesa para celular -->
+  <button class="menu-btn" onclick="toggleSidebar()">☰ Menú</button>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="volveraindex">
+      <a href="index.html">
+        <img src="fotos/conejitoblanco.png" alt="conejito" class="sidebar-conejito">
+      </a>
+    </div>
+  
+    <h2 class="años">2023</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="TOFF.html">Taller de Observación Fundamento y Forma</a></li>
+      <li><a class="sidebarLinks" href="Taller de Creación Impresa.html">Taller de Creación Impresa</a></li>
+    </ul>
+
+    <h2 class="años">2024</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="Taller Ciudad Legible.html">Taller Ciudad Legible</a></li>
+      <li><a class="sidebarLinks" href="Taller de Máquinas Expresivas.html">Taller de Máquinas Expresivas</a></li>
+    </ul>
+
+    <h2 class="años">2025</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="Taller de la Ocasión Editorial.html">Taller de la Ocasión Editorial</a></li>
+    </ul>
+
+    <h2 class="años">Proyectos personales</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="Ediciones DOG.html">Ediciones DOG</a></li>
+    </ul>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="contenido">
+    <h1 class="titulo-principal">Ediciones DOG</h1>
+
+    <p class="textoinfo">
+      Dog nace de la necesidad de espacios creativos sin correcciones académicas, aburridos de la constante crítica recibida 
+      en los talleres universitarios, en conjunto a dos amigos y compañeros de universidad, fundamos Dog: Diversión Ocasional Gráfica. 
+     Si bien dog basa su nombre en una editorial, Dog funciona más como un concepto, un estilo de vida. A la fecha, hemos construido elementos 
+     de colección, como tazos, variedades de sticker, peluches, pósters, fanzines y dibujos digitales. Esperamos seguir elaborando 
+     nuevas creaciones que nos permitan seguir expandiendo el universo dog.</p>
+
+     <p class="textoinfo">Dog es un proyecto muy querido por nosotros como equipo dog, ha sido una identidad que ha ido creciendo, evolucionando y sosteniéndose 
+     a través del tiempo, y estamos muy felices de poder habitar y compartir a dog dentro del amor y la amistad. 
+
+     Larga vida a dog y sus colecciones ! </p>
+
+
+     <h3>Colección Aveces,</h3>
+     <p> "Aveces," es una colección perteneciente a dog, en la cual se publica de todo aquello que suceda aveces, 
+        esta colección funciona como una rama diferente a la temática de identidad de dog, sigue otras reglas editoriales y de concepto. 
+        A la fecha, se han publicado tres ediciones de aveces: 
+
+        Aveces, en el sur de chile. 
+        Aveces, resentida y 
+        Aveces,
+     </p>
+     
+    </p>
+
+    <div class="galeria-toff">
+      <img src="fotos/DOG/originaldog.png" alt="Logotipo Dog" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/DOG2.jpg" alt="" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/DOG1.jpg" alt="" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/DOG.jpg" alt="" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/DOG4.png" alt="" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/DOG5.png" alt="" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/DOG6.png" alt="" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/DOG7.png" alt="" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/DOG8.jpg" alt="" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/DOG9.png" alt="" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/DOG10.png" alt="" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/dog11.png" alt="" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/dogtazos.png" alt="Tazo Dog" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/aveces.png" alt="Logotipo de colección aveces," onclick="abrirImagen(this)">
+      <img src="fotos/DOG/avecesresentida.png" alt="aveces, resentida" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/aveces1.png" alt="aveces, resentida pag 1" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/aveces2.png" alt="aveces, resentida pag 2" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/aveces3.png" alt="aveces, resentida pag 3" onclick="abrirImagen(this)">
+      <img src="fotos/DOG/avecessur.png" alt="aveces, en el sur de Chile" onclick="abrirImagen(this)">
+
+      
+    </div>
+
+
+
+
+
+  </div>
+
+  <!-- Contenedor del visor -->
+  <div id="visor" class="visor" onclick="cerrarImagen()">
+    <span class="cerrar">&times;</span>
+    <img id="imagenAmpliada" src="">
+    <p id="descripcionImagen"></p>
+  </div>
+
+  <!-- Script del visor -->
+  <script>
+    function abrirImagen(img) {
+      const visor = document.getElementById("visor");
+      const imagenAmpliada = document.getElementById("imagenAmpliada");
+      const descripcion = document.getElementById("descripcionImagen");
+
+      imagenAmpliada.src = img.src;
+      descripcion.textContent = img.alt || "";
+      visor.style.display = "flex";
+    }
+
+    function cerrarImagen() {
+      document.getElementById("visor").style.display = "none";
+    }
+  </script>
+
+  <!-- Script general (sidebar y menú hamburguesa) -->
+  <script src="script.js"></script>
+
+  <!-- Script para resaltar dinámicamente el enlace activo -->
+  <script>
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
+
+    function actualizarActivo(link) {
+      sidebarLinks.forEach(l => l.classList.remove('activo'));
+      link.classList.add('activo');
+    }
+
+    sidebarLinks.forEach(link => {
+      // Resalta automáticamente el enlace que coincide con la URL al cargar
+      if (link.href === window.location.href) {
+        link.classList.add('activo');
+      }
+
+      // Al hacer clic, resalta y quita el anterior
+      link.addEventListener('click', function() {
+        actualizarActivo(this);
+      });
+    });
+  </script>
+
+</body>
+</html>

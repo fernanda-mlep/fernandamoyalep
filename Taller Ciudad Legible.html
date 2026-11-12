@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Taller Ciudad Legible" content="Taller Ciudad Legible - Primer semestre 2024 en 2do año Diseño PUCV">
+  <title>Taller Ciudad Legible</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Botón hamburguesa para celular -->
+  <button class="menu-btn" onclick="toggleSidebar()">☰ Menú</button>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="volveraindex">
+      <a href="index.html">
+        <img src="fotos/conejitoblanco.png" alt="conejito" class="sidebar-conejito">
+      </a>
+    </div>
+  
+    <h2 class="años">2023</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="TOFF.html">Taller de Observación Fundamento y Forma</a></li>
+      <li><a class="sidebarLinks" href="Taller de Creación Impresa.html">Taller de Creación Impresa</a></li>
+    </ul>
+
+    <h2 class="años">2024</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="Taller Ciudad Legible.html">Taller Ciudad Legible</a></li>
+      <li><a class="sidebarLinks" href="Taller de Máquinas Expresivas.html">Taller de Máquinas Expresivas</a></li>
+    </ul>
+
+    <h2 class="años">2025</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="Taller de la Ocasión Editorial.html">Taller de la Ocasión Editorial</a></li>
+    </ul>
+
+    <h2 class="años">Proyectos personales</h2>
+    <ul>
+      <li><a class="sidebarLinks" href="Ediciones DOG.html">Ediciones DOG</a></li>
+    </ul>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="contenido">
+    <h1 class="titulo-principal">Taller Ciudad Legible</h1>
+    <h3>Primer semestre 2024 - Tercer semestre de carrera</h3>
+
+    <p class="textoinfo">
+      Este es mi tercer semestre de carrera, el taller que cursé era de un enfoque gráfico digital, en el cual 
+      tuvimos que desarrollar modos de expresar información, por lo que, se diseñó un folleto para el 
+      Museo de Historia Natural de Valparaíso y un folleto e infografía para el Jardín Botánico Nacional de Viña del Mar.
+    </p>
+
+    <h3 class="subtitulo">Folleto: The whale fall - La caída de las ballenas</h3>
+    <div class="galeria-toff">
+      <img src="fotos/TCL/TCL1.png" alt="Página de bitácora de taller en la que se boceteó la estructura del folleto" onclick="abrirImagen(this)">
+      <img src="fotos/TCL/TCL2.png" alt="Bocetos de ilustraciones" onclick="abrirImagen(this)">
+      <img src="fotos/TCL/TCL3.png" alt="Bocetos de ilustraciones" onclick="abrirImagen(this)">
+      <img src="fotos/TCL/TCL4.png" alt="Bocetos de ilustraciones" onclick="abrirImagen(this)">
+      <img src="fotos/TCL/TCL5.png" alt="Infografía final: Tiro de edición" onclick="abrirImagen(this)">
+      <img src="fotos/TCL/TCL6.png" alt="Retiro de edición" onclick="abrirImagen(this)">
+    </div>
+
+   <h3 class="subtitulo">Folleto e infografía para Jardín Botánico Nacional de Viña del Mar</h3>
+    <div class="galeria-toff">
+      <img src="fotos/TCL/TCL7.png" alt="Página de bitácora de taller en la que se boceteó la estructura del cuerpo de la edición" onclick="abrirImagen(this)">
+      <img src="fotos/TCL/TCL8.png" alt="Página de bitácora de taller en la que se boceteó la estructura del cuerpo de la edición" onclick="abrirImagen(this)">
+      <img src="fotos/TCL/TCL9.png" alt="Grabado realizado con acrilico negro sobre mica transparente" onclick="abrirImagen(this)">
+      <img src="fotos/TCL/TCL10.png" alt="Grabado realizado con acrilico negro sobre mica transparente" onclick="abrirImagen(this)">
+      <img src="fotos/TCL/TCL11.png" alt="Folleto final: Tiro de edición - Dimensiones 77cm x 110cm" onclick="abrirImagen(this)">
+      <img src="fotos/TCL/TCL12.png" alt="Folleto final: Mapa del Jardín Botánico - Dimensiones 77cm x 110cm" onclick="abrirImagen(this)">
+    </div>
+
+  </div>
+
+  <!-- Contenedor del visor -->
+  <div id="visor" class="visor" onclick="cerrarImagen()">
+    <span class="cerrar">&times;</span>
+    <img id="imagenAmpliada" src="">
+    <p id="descripcionImagen"></p>
+  </div>
+
+  <!-- Script del visor -->
+  <script>
+    function abrirImagen(img) {
+      const visor = document.getElementById("visor");
+      const imagenAmpliada = document.getElementById("imagenAmpliada");
+      const descripcion = document.getElementById("descripcionImagen");
+
+      imagenAmpliada.src = img.src;
+      descripcion.textContent = img.alt || "";
+      visor.style.display = "flex";
+    }
+
+    function cerrarImagen() {
+      document.getElementById("visor").style.display = "none";
+    }
+  </script>
+
+  <!-- Script general (sidebar y menú hamburguesa) -->
+  <script src="script.js"></script>
+
+  <!-- Script para resaltar dinámicamente el enlace activo -->
+  <script>
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
+
+    function actualizarActivo(link) {
+      sidebarLinks.forEach(l => l.classList.remove('activo'));
+      link.classList.add('activo');
+    }
+
+    sidebarLinks.forEach(link => {
+      // Resalta automáticamente el enlace que coincide con la URL al cargar
+      if (link.href === window.location.href) {
+        link.classList.add('activo');
+      }
+
+      // Al hacer clic, resalta y quita el anterior
+      link.addEventListener('click', function() {
+        actualizarActivo(this);
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+
